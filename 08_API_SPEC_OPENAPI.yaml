@@ -1,0 +1,244 @@
+openapi: 3.1.0
+info:
+  title: Real Estate Transaction Coordinator + Agent CRM API
+  version: 2.0.0
+  description: |
+    This document specifies the API for the Real Estate Transaction Coordinator + Agent CRM platform. It covers all endpoints for property management, the AI Property Agent, multi-channel integrations, and customer lifecycle automation.
+
+servers:
+  - url: https://{subdomain}.supabase.co/rest/v1
+    variables:
+      subdomain:
+        default: your-project-subdomain
+        description: Your Supabase project subdomain.
+
+security:
+  - bearerAuth: []
+
+paths:
+  /properties:
+    get:
+      summary: List properties
+      description: Retrieves a list of properties, filtered by query parameters.
+      parameters:
+        - name: agent_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: A list of properties.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Property'
+    post:
+      summary: Create a property
+      description: Adds a new property to the database.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Property'
+      responses:
+        '214':
+          description: Property created successfully.
+
+  /webhooks/whatsapp:
+    post:
+      summary: WhatsApp Webhook
+      description: Handles incoming messages and status updates from the WhatsApp Business API.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WhatsAppWebhook'
+      responses:
+        '200':
+          description: Webhook received.
+
+  /webhooks/facebook:
+    post:
+      summary: Facebook Messenger & Instagram Webhook
+      description: Handles incoming messages from Facebook Messenger and Instagram Direct Messages.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FacebookWebhook'
+      responses:
+        '200':
+          description: Webhook received.
+
+components:
+  schemas:
+    Property:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        team_id:
+          type: string
+          format: uuid
+        agent_id:
+          type: string
+          format: uuid
+        address:
+          type: string
+        latitude:
+          type: number
+        longitude:
+          type: number
+        property_type:
+          type: string
+        bedrooms:
+          type: integer
+        bathrooms:
+          type: number
+        square_feet:
+          type: integer
+        year_built:
+          type: integer
+        list_price:
+          type: number
+        status:
+          type: string
+        list_date:
+          type: string
+          format: date
+        close_date:
+          type: string
+          format: date
+        source:
+          type: string
+        external_id:
+          type: string
+        source_sync_date:
+          type: string
+          format: date-time
+        description:
+          type: string
+        photo_urls:
+          type: array
+          items:
+            type: string
+        embedding:
+          type: array
+          items:
+            type: number
+        enrichment_data:
+          type: object
+
+    WhatsAppWebhook:
+      type: object
+      properties:
+        object:
+          type: string
+        entry:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              changes:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    value:
+                      type: object
+                      properties:
+                        messaging_product:
+                          type: string
+                        metadata:
+                          type: object
+                          properties:
+                            display_phone_number:
+                              type: string
+                            phone_number_id:
+                              type: string
+                        contacts:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              profile:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                              wa_id:
+                                type: string
+                        messages:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              from:
+                                type: string
+                              id:
+                                type: string
+                              timestamp:
+                                type: string
+                              text:
+                                type: object
+                                properties:
+                                  body:
+                                    type: string
+                              type:
+                                type: string
+                    field:
+                      type: string
+
+    FacebookWebhook:
+      type: object
+      properties:
+        object:
+          type: string
+        entry:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              time:
+                type: integer
+              messaging:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    sender:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                    recipient:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                    timestamp:
+                      type: integer
+                    message:
+                      type: object
+                      properties:
+                        mid:
+                          type: string
+                        text:
+                          type: string
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
