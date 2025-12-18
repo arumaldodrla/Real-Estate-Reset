@@ -29,6 +29,17 @@ The development of this platform is guided by the following core principles:
 ### Core Specifications
 *   [00_README.md](00_README.md): This file, providing an overview and index of the documentation pack.
 *   [01_PRD.md](01_PRD.md): The Product Requirements Document, which outlines the functional and non-functional requirements of the platform.
+
+### Business Context
+*   [02_BUSINESS_CONTEXT/executive_summary.md](02_BUSINESS_CONTEXT/executive_summary.md): Executive Summary with vision, opportunity, and competitive advantage
+*   [02_BUSINESS_CONTEXT/market_analysis.md](02_BUSINESS_CONTEXT/market_analysis.md): Market Analysis & Opportunity (TAM, SAM, pain points, growth drivers)
+*   [02_BUSINESS_CONTEXT/competitive_landscape.md](02_BUSINESS_CONTEXT/competitive_landscape.md): Competitive Landscape and Positioning
+*   [02_BUSINESS_CONTEXT/business_model_and_pricing.md](02_BUSINESS_CONTEXT/business_model_and_pricing.md): Business Model & Pricing (4 tiers, subscription + usage-based)
+*   [02_BUSINESS_CONTEXT/go_to_market_strategy.md](02_BUSINESS_CONTEXT/go_to_market_strategy.md): Go-To-Market Strategy and Customer Acquisition Channels
+*   [02_BUSINESS_CONTEXT/financial_projections.md](02_BUSINESS_CONTEXT/financial_projections.md): Financial Projections & Funding Requirements
+*   [02_BUSINESS_CONTEXT/risk_analysis.md](02_BUSINESS_CONTEXT/risk_analysis.md): Risk Analysis & Mitigation Strategies
+
+### Technical Specifications
 *   [03_SYSTEM_ARCHITECTURE.md](03_SYSTEM_ARCHITECTURE.md): A high-level overview of the system architecture.
 *   [06_DATABASE_SCHEMA.md](06_DATABASE_SCHEMA.md): The complete database schema.
 *   [07_RLS_AND_AUTHZ.md](07_RLS_AND_AUTHZ.md): Row-Level Security (RLS) and authorization model.

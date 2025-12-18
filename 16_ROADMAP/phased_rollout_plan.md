@@ -50,7 +50,15 @@ This document outlines the phased rollout strategy for the platform, designed to
     - Successful message delivery and response across all channels.
     - Positive user feedback on the chatbot experience.
 
-## Phase 5: Iterate & Expand (Post-Launch)
+## Phase 5: Business Milestones (Post-Launch)
+
+- **Month 9:** Soft launch (beta) with 20+ teams.
+- **Month 10-11:** Achieve Product-Market Fit (15%+ trial conversion).
+- **Month 12:** Reach 100 paying teams ($38K MRR).
+- **Month 15:** Achieve $1M ARR and company profitability.
+- **Month 18:** Scale to $1.8M+ ARR with 40%+ operating margin.
+
+## Phase 6: Iterate & Expand (Post-Launch)
 
 - **Goal**: Continuously improve the platform based on user feedback and data.
 - **Activities**:

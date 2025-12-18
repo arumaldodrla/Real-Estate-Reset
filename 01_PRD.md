@@ -4,7 +4,13 @@
 **Date:** December 18, 2025  
 **Product:** Real Estate Transaction Coordination + Agent CRM + AI Property Recommendation Agent
 
-## 1. Purpose and Scope
+## 1. Business Goals
+
+- **Primary Goal:** Achieve $1M ARR by Month 15 of operation.
+- **Secondary Goal:** Capture 1-2% of the Serviceable Addressable Market (SAM) within 3 years.
+- **Strategic Goal:** Become the dominant all-in-one platform for real estate teams, combining transaction coordination, CRM, and AI-powered customer engagement.
+
+## 2. Purpose and Scope
 
 This document defines the functional and non-functional requirements for the platform. It serves as the foundational specification for the engineering team.
 
@@ -63,7 +69,29 @@ The platform is an end-to-end solution for real estate professionals that combin
 - **CRM Sync:** Customer data will be automatically synced to Zoho CRM.
 - **Support Escalation:** The AI Support Agent will escalate complex issues to a human agent by creating a ticket in Zoho Desk.
 
-## 4. Non-Functional Requirements
+## 4. Success Metrics
+
+### Product Metrics (Launch + First 6 Months)
+
+| Metric | Target |
+|---|---|
+| **Onboarding Completion** | 85%+ |
+| **Feature Adoption** (transaction creation) | 90%+ |
+| **Engagement** (weekly active users) | 70%+ |
+| **Time-to-First-Value** | < 5 minutes |
+
+### Business Metrics (Launch + First 12 Months)
+
+| Metric | Target |
+|---|---|
+| **Trial Conversion Rate** | 15%+ |
+| **Customer Acquisition Cost** | < $75 |
+| **Monthly Churn Rate** | < 6% |
+| **Net Dollar Retention** | > 100% |
+| **CAC Payback Period** | < 10 days |
+| **LTV:CAC Ratio** | > 50x |
+
+## 5. Non-Functional Requirements
 
 - **Performance:** The platform must be fast and responsive, with a P95 chatbot response time of less than 2.5 seconds.
 - **Scalability:** The architecture must scale to support hundreds of teams, hundreds of thousands of properties, and thousands of concurrent chatbot sessions.
