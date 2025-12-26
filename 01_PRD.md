@@ -40,7 +40,17 @@ The platform is an end-to-end solution for real estate professionals that combin
 - **End Customer:** Prospective home buyers or renters who interact with the AI Property Agent.
 - **System Administrator:** Internal user responsible for platform operations and maintenance.
 
-## 3. Functional Requirements
+### 3.5. User Experience
+
+- **Simplicity and Power**: The user interface must be designed with a focus on simplicity and ease of use for non-technical users. Despite the complexity of the underlying features, the user experience should be intuitive, with clear navigation and a minimal learning curve.
+
+### 3.6. Internationalization (i18n)
+
+- **Primary Language**: The default language of the platform will be English (en-US).
+- **Spanish Translation**: The entire frontend application must be translated into Spanish (es-ES) as the first additional language.
+- **AI-Assisted Translation Framework**: The platform must implement an i18n framework (e.g., `i18next`) that supports the easy addition of new languages. The process for adding new languages should be designed to be assisted by AI language models to accelerate translation.
+
+## 4. Functional Requirements
 
 ### 3.1. Core Platform
 
@@ -91,7 +101,9 @@ The platform is an end-to-end solution for real estate professionals that combin
 | **CAC Payback Period** | < 10 days |
 | **LTV:CAC Ratio** | > 50x |
 
-## 5. Non-Functional Requirements
+## 6. Non-Functional Requirements
+
+- **Autonomous Maintenance and Self-Revision**: The platform must include a weekly self-revision process. This process will involve automated checks for bugs, performance issues, and security vulnerabilities. AI agents will be responsible for autonomously applying minor patches and updates. Major updates or changes that affect the user interface or core functionality must be flagged for human review and approval before deployment.
 
 - **Performance:** The platform must be fast and responsive, with a P95 chatbot response time of less than 2.5 seconds.
 - **Scalability:** The architecture must scale to support hundreds of teams, hundreds of thousands of properties, and thousands of concurrent chatbot sessions.

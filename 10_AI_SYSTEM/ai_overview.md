@@ -35,3 +35,10 @@ This document provides a high-level overview of the AI systems and components wi
 -   **Human-in-the-Loop**: While the AI agents are designed to be autonomous, there are clear escalation paths for human intervention, particularly for complex or sensitive issues.
 -   **Compliance by Design**: The AI systems are built with a strong emphasis on regulatory compliance, including fair housing laws and data privacy regulations.
 -   **Transparency**: The AI agents are transparent about their capabilities and limitations, and they clearly disclose when a user is interacting with an AI.
+
+
+## 3. AI-Driven Development & Maintenance
+
+-   **Development Agent**: The primary development of the platform will be carried out by an AI agent. This agent will use the documentation in this repository as its source of truth.
+-   **Maintenance Agent**: A specialized AI agent will be responsible for the weekly self-revision cycle. This agent will be triggered by a GitHub Actions workflow and will have the ability to create and merge pull requests for minor updates.
+-   **Translation Agent**: An AI agent will be used to accelerate the translation of the frontend application into new languages. This agent will be given the English translation files as input and will generate the corresponding files for the target language.

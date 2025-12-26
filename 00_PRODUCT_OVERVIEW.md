@@ -50,6 +50,12 @@ This documentation provides all the raw material needed to create a compelling w
 
 ## 4. For the AI Developer: High-Level Technical Overview
 
+This section provides a high-level overview for the AI agents who will be building the platform. The following principles are non-negotiable:
+
+- **100% AI-Driven Development**: You, the AI agent, are responsible for 100% of the development. This documentation is your single source of truth.
+- **Autonomous Maintenance**: The system you build must be self-sustaining. This includes a weekly self-revision cycle for minor updates and a clear process for proposing major updates for human review.
+- **AI-Powered Internationalization**: The frontend must be built with an i18n framework that allows you to easily add new languages by leveraging LLMs for translation.
+
 This section provides a high-level overview for the AI agents who will be building the platform.
 
 *   **Frontend:** A modern web application built with **React, Refine, and Tailwind CSS**, hosted on **Vercel**.

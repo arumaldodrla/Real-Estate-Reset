@@ -17,6 +17,13 @@ This documentation is organized into a series of files, each covering a specific
 
 The development of this platform is guided by the following core principles:
 
+-   **100% AI-Driven Development**: The entire platform, from initial code to ongoing maintenance, will be developed by AI agents. All documentation must be explicit, machine-readable, and unambiguous.
+-   **Simple UX, Powerful Features**: The user interface must be intuitive and easy to use for non-technical users, while the underlying platform provides a rich and complex feature set.
+-   **Autonomous Maintenance & Self-Revision**: The system will perform weekly self-checks, with AI agents autonomously applying minor updates and proposing major updates for human review.
+-   **AI-Powered Internationalization**: The platform will be built with a robust i18n framework, with AI agents assisting in the translation process to support multiple languages, starting with English and Spanish.
+
+The development of this platform is guided by the following core principles:
+
 -   **Automation First**: All customer-facing flows must be fully automated.
 -   **Human-Governed Evolution**: Major changes require human review and approval.
 -   **Compliance by Design**: The architecture must support SOC 2, ISO 27001, GDPR, and other relevant regulations from day one.
