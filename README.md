@@ -22,14 +22,7 @@ The development of this platform is guided by the following core principles:
 -   **Autonomous Maintenance & Self-Revision**: The system will perform weekly self-checks, with AI agents autonomously applying minor updates and proposing major updates for human review.
 -   **AI-Powered Internationalization**: The platform will be built with a robust i18n framework, with AI agents assisting in the translation process to support multiple languages, starting with English and Spanish.
 
-The development of this platform is guided by the following core principles:
 
--   **Automation First**: All customer-facing flows must be fully automated.
--   **Human-Governed Evolution**: Major changes require human review and approval.
--   **Compliance by Design**: The architecture must support SOC 2, ISO 27001, GDPR, and other relevant regulations from day one.
--   **Positive, Detail-Oriented UX**: The platform should provide a calm, clear, and low-friction user experience.
--   **Least Privilege & Defense-in-Depth**: Every component runs with the minimum necessary permissions.
--   **Jurisdiction & Regulation Awareness**: The AI agent must understand and respect local laws and regulations.
 
 ## Documentation Index
 
@@ -59,24 +52,11 @@ The development of this platform is guided by the following core principles:
 *   [07_RLS_AND_AUTHZ.md](07_RLS_AND_AUTHZ.md): The Row-Level Security (RLS) and authorization model.
 *   [08_API_SPEC_OPENAPI.yaml](08_API_SPEC_OPENAPI.yaml): The OpenAPI specification for all internal and external APIs.
 
-### Core Specifications
-*   [00_README.md](00_README.md): This file, providing an overview and index of the documentation pack.
-*   [01_PRD.md](01_PRD.md): The Product Requirements Document, which outlines the functional and non-functional requirements of the platform.
 
-### Business Context
-*   [02_BUSINESS_CONTEXT/executive_summary.md](02_BUSINESS_CONTEXT/executive_summary.md): Executive Summary with vision, opportunity, and competitive advantage
-*   [02_BUSINESS_CONTEXT/market_analysis.md](02_BUSINESS_CONTEXT/market_analysis.md): Market Analysis & Opportunity (TAM, SAM, pain points, growth drivers)
-*   [02_BUSINESS_CONTEXT/competitive_landscape.md](02_BUSINESS_CONTEXT/competitive_landscape.md): Competitive Landscape and Positioning
-*   [02_BUSINESS_CONTEXT/business_model_and_pricing.md](02_BUSINESS_CONTEXT/business_model_and_pricing.md): Business Model & Pricing (4 tiers, subscription + usage-based)
-*   [02_BUSINESS_CONTEXT/go_to_market_strategy.md](02_BUSINESS_CONTEXT/go_to_market_strategy.md): Go-To-Market Strategy and Customer Acquisition Channels
-*   [02_BUSINESS_CONTEXT/financial_projections.md](02_BUSINESS_CONTEXT/financial_projections.md): Financial Projections & Funding Requirements
-*   [02_BUSINESS_CONTEXT/risk_analysis.md](02_BUSINESS_CONTEXT/risk_analysis.md): Risk Analysis & Mitigation Strategies
 
-### Technical Specifications
-*   [03_SYSTEM_ARCHITECTURE.md](03_SYSTEM_ARCHITECTURE.md): A high-level overview of the system architecture.
-*   [06_DATABASE_SCHEMA.md](06_DATABASE_SCHEMA.md): The complete database schema.
-*   [07_RLS_AND_AUTHZ.md](07_RLS_AND_AUTHZ.md): Row-Level Security (RLS) and authorization model.
-*   [08_API_SPEC_OPENAPI.yaml](08_API_SPEC_OPENAPI.yaml): The OpenAPI specification for all internal and external APIs.
+
+
+
 
 ### Integrations
 *   [09_INTEGRATIONS/authorize_net.md](09_INTEGRATIONS/authorize_net.md): Authorize.Net Integration Runbook
@@ -109,6 +89,8 @@ The development of this platform is guided by the following core principles:
 *   [11_SECURITY_COMPLIANCE/threat_model.md](11_SECURITY_COMPLIANCE/threat_model.md): Threat Model
 
 ### Development & Deployment
+*   [12_DEV_GUIDES/internationalization_i18n.md](12_DEV_GUIDES/internationalization_i18n.md): The Internationalization (i18n) specification, including the AI-assisted translation workflow.
+*   [13_DEPLOYMENT/autonomous_updates.md](13_DEPLOYMENT/autonomous_updates.md): The specification for the weekly self-revision and autonomous update cycle.
 *   [12_DEV_GUIDES/local_setup.md](12_DEV_GUIDES/local_setup.md): Guides for local setup.
 *   [12_DEV_GUIDES/repo_structure.md](12_DEV_GUIDES/repo_structure.md): Repository structure.
 *   [13_DEPLOYMENT/environments_and_secrets.md](13_DEPLOYMENT/environments_and_secrets.md): Environments and Secrets Management
