@@ -26,6 +26,32 @@ The development of this platform is guided by the following core principles:
 
 ## Documentation Index
 
+### 1. Getting Started
+
+*   [00_PRODUCT_OVERVIEW.md](00_PRODUCT_OVERVIEW.md): **Start Here.** A comprehensive overview of the product for all audiences, from project managers to marketers to developers.
+
+### 2. Business Context
+
+*   [02_BUSINESS_CONTEXT/executive_summary.md](02_BUSINESS_CONTEXT/executive_summary.md): The vision, opportunity, and path to $1M ARR.
+*   [02_BUSINESS_CONTEXT/market_analysis.md](02_BUSINESS_CONTEXT/market_analysis.md): A deep dive into the market, including TAM, SAM, and key customer pain points.
+*   [02_BUSINESS_CONTEXT/competitive_landscape.md](02_BUSINESS_CONTEXT/competitive_landscape.md): Analysis of direct and indirect competitors.
+*   [02_BUSINESS_CONTEXT/business_model_and_pricing.md](02_BUSINESS_CONTEXT/business_model_and_pricing.md): The subscription and usage-based pricing model.
+*   [02_BUSINESS_CONTEXT/go_to_market_strategy.md](02_BUSINESS_CONTEXT/go_to_market_strategy.md): The plan for acquiring the first 100 customers.
+*   [02_BUSINESS_CONTEXT/financial_projections.md](02_BUSINESS_CONTEXT/financial_projections.md): Detailed financial projections and funding requirements.
+*   [02_BUSINESS_CONTEXT/risk_analysis.md](02_BUSINESS_CONTEXT/risk_analysis.md): A clear-eyed view of the risks and mitigation strategies.
+
+### 3. Marketing Content
+
+*   [04_MARKETING_CONTENT/key_messages_and_value_props.md](04_MARKETING_CONTENT/key_messages_and_value_props.md): Ready-to-use marketing copy for the website, social media, and ad campaigns.
+
+### 4. Core & Technical Specifications
+
+*   [01_PRD.md](01_PRD.md): The Product Requirements Document, which outlines the functional and non-functional requirements of the platform.
+*   [03_SYSTEM_ARCHITECTURE.md](03_SYSTEM_ARCHITECTURE.md): A high-level overview of the system architecture, including C4 diagrams.
+*   [06_DATABASE_SCHEMA.md](06_DATABASE_SCHEMA.md): The complete database schema with an ERD.
+*   [07_RLS_AND_AUTHZ.md](07_RLS_AND_AUTHZ.md): The Row-Level Security (RLS) and authorization model.
+*   [08_API_SPEC_OPENAPI.yaml](08_API_SPEC_OPENAPI.yaml): The OpenAPI specification for all internal and external APIs.
+
 ### Core Specifications
 *   [00_README.md](00_README.md): This file, providing an overview and index of the documentation pack.
 *   [01_PRD.md](01_PRD.md): The Product Requirements Document, which outlines the functional and non-functional requirements of the platform.

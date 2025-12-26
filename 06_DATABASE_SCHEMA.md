@@ -1,8 +1,99 @@
 # 06. Database Schema
 
-This document defines the PostgreSQL database schema for the Real Estate Transaction Coordinator + Agent CRM platform, implemented on Supabase. It includes the core tables for property management, AI chatbot functionality, and regulatory compliance.
+This document defines the PostgreSQL database schema for the Real Estate Transaction Coordinator + Agent CRM platform, implemented on Supabase. It includes an Entity-Relationship Diagram (ERD) and detailed SQL definitions for all core tables, covering multi-tenancy, property management, AI chatbot functionality, and regulatory compliance.
+
+## Entity-Relationship Diagram (ERD)
+
+This diagram provides a visual overview of the relationships between the core tables in the database.
+
+```mermaid
+erDiagram
+    TEAMS {
+        UUID id PK
+        text name
+    }
+
+    PROFILES {
+        UUID user_id PK
+        UUID team_id FK
+        text role
+    }
+
+    PROPERTIES {
+        UUID id PK
+        UUID team_id FK
+        UUID agent_id FK
+        text address
+        vector embedding
+    }
+
+    REGULATIONS {
+        UUID id PK
+        varchar country
+        varchar state_province
+    }
+
+    CHATBOT_CONFIGS {
+        UUID id PK
+        UUID agent_id FK
+        UUID team_id FK
+        text chatbot_name
+    }
+
+    CHATBOT_SESSIONS {
+        UUID id PK
+        UUID agent_id FK
+        text customer_id
+    }
+
+    CHATBOT_CONVERSATIONS {
+        UUID id PK
+        UUID session_id FK
+        text customer_message
+        text response_text
+    }
+
+    TEAMS ||--o{ PROFILES : has
+    PROFILES }o--|| PROPERTIES : "manages"
+    PROFILES }o--|| CHATBOT_CONFIGS : "configures"
+    PROFILES }o--|| CHATBOT_SESSIONS : "owns"
+    CHATBOT_SESSIONS ||--o{ CHATBOT_CONVERSATIONS : has
+```
+
 
 ## 6.1 Core Tables (PostgreSQL via Supabase)
+
+### Multi-Tenancy and Users
+
+These tables form the foundation of the platform's multi-tenant architecture.
+
+**`teams`**
+
+Represents a brokerage or a group of agents, which is the primary tenancy unit.
+
+```sql
+CREATE TABLE teams (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  name TEXT NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+```
+
+**`profiles`**
+
+Stores user-specific information and links a user from `auth.users` to a `team`.
+
+```sql
+CREATE TABLE profiles (
+  user_id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
+  team_id UUID REFERENCES teams(id) ON DELETE SET NULL,
+  role TEXT NOT NULL DEFAULT 'agent', -- 'agent', 'team_admin'
+  full_name TEXT,
+  avatar_url TEXT,
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+```
+
 
 ### Property Management
 

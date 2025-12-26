@@ -76,3 +76,67 @@ C4Container
   Rel(api, llm, "Calls for AI capabilities")
   Rel(api, social, "Integrates with")
 ```
+
+
+## C4-Model: Level 3 - Component Diagram (Backend API)
+
+This diagram breaks down the `Backend API` container into its key components, which are implemented as Supabase Edge Functions.
+
+```mermaid
+C4Component
+  title Component Diagram for Backend API
+
+  Container(frontend, "Frontend Web App")
+  ContainerDb(db, "Database")
+  System_Ext(social, "Social Messaging APIs")
+  System_Ext(llm, "AI/LLM Services")
+  System_Ext(mls, "MLS/RETS Service")
+
+  System_Boundary(api, "Backend API (Supabase Edge Functions)") {
+    Component(auth_handler, "Auth Handler", "Deno/TypeScript", "Handles user authentication and JWT validation")
+    Component(webhook_handler, "Webhook Handler", "Deno/TypeScript", "Receives incoming webhooks from social channels (WhatsApp, etc.)")
+    Component(message_orchestrator, "Message Orchestrator", "Deno/TypeScript", "Routes incoming messages to the AI Property Agent")
+    Component(ai_agent, "AI Property Agent", "Deno/TypeScript", "Processes queries, performs vector search, and generates responses")
+    Component(property_ingestor, "Property Ingestor", "Deno/TypeScript", "Scheduled function to sync properties from MLS/APIs")
+    Component(zoho_sync, "Zoho Sync", "Deno/TypeScript", "Syncs data with Zoho CRM, Billing, and Desk")
+  }
+
+  Rel(frontend, auth_handler, "Authenticates user")
+  Rel(social, webhook_handler, "Sends incoming messages")
+  Rel(webhook_handler, message_orchestrator, "Forwards message for processing")
+  Rel(message_orchestrator, ai_agent, "Invokes agent to handle query")
+  Rel(ai_agent, db, "Reads property data and vector embeddings")
+  Rel(ai_agent, llm, "Calls for NLU and response generation")
+  Rel(ai_agent, social, "Sends response back to user")
+  Rel(property_ingestor, mls, "Fetches new listings")
+  Rel(property_ingestor, db, "Writes property data and embeddings")
+  Rel(api, zoho_sync, "Syncs data periodically")
+```
+
+## Sequence Diagram: AI Chatbot Interaction
+
+This diagram illustrates the sequence of events when an end customer sends a message to the AI Property Agent.
+
+```mermaid
+sequenceDiagram
+    participant C as End Customer
+    participant SM as Social Messaging API
+    participant WH as Webhook Handler
+    participant MO as Message Orchestrator
+    participant AIA as AI Property Agent
+    participant DB as Database (Supabase)
+    participant LLM as AI/LLM Service
+
+    C->>SM: Sends message ("I'm looking for a 3-bed in Austin")
+    SM->>WH: POST /webhook
+    WH->>MO: Forward message
+    MO->>AIA: ProcessQuery(message)
+    AIA->>LLM: 1. Extract Intent & Entities
+    LLM-->>AIA: { intent: 'property_search', entities: { beds: 3, city: 'Austin' } }
+    AIA->>DB: 2. Vector Search for properties
+    DB-->>AIA: Return matching properties
+    AIA->>LLM: 3. Generate Response with properties & compliance notes
+    LLM-->>AIA: Formatted response text
+    AIA->>SM: Send reply message
+    SM-->>C: Delivers message to customer
+```
